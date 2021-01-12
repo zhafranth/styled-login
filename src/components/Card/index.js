@@ -100,7 +100,7 @@ const Index = () => {
             <DescHero>
               Enter your personal details and start journey with us
             </DescHero>
-            <ButtonHero onClick={handleShow}>Register</ButtonHero>
+            <ButtonHero onClick={handleShow}>Login</ButtonHero>
           </WrapperHero>
         ) : (
           <WrapperHero>
@@ -108,7 +108,7 @@ const Index = () => {
             <DescHero>
               To keep connected with us please Login with your personal info
             </DescHero>
-            <ButtonHero onClick={handleShow}>Login</ButtonHero>
+            <ButtonHero onClick={handleShow}>Register</ButtonHero>
           </WrapperHero>
         )}
       </Hero>
