@@ -25,10 +25,11 @@ export const Section = styled.div`
   left: ${(props) => (props.primary ? "55%" : 0)};
   right: ${(props) => (props.primary ? 0 : "55%")};
   bottom: 0;
-  transition: left ${(props) => (props.primary ? "1s" : "0.4s")} linear,
+  transition: left ${(props) => (props.primary ? "0.7s" : "0.4s")} linear,
     right ${(props) => (props.primary ? "0.4s" : "0.7s")} linear;
   /* transform: translateX(${(props) => (props.primary ? "200px" : "0")});
   transition: transform 0.5s linear; */
+  z-index: 9;
 `;
 
 export const WrapperContent = styled.div`
@@ -36,7 +37,8 @@ export const WrapperContent = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
+  left: ${(props) => props.left};
+  right: ${(props) => props.right};
   padding: 2rem 3.5rem;
   display: flex;
   flex-direction: column;
@@ -45,7 +47,7 @@ export const WrapperContent = styled.div`
   height: 100%;
   box-sizing: border-box;
   transform: translateX(${(props) => props.tranform});
-  transition: transform 0.2s linear;
+  transition: transform ${(props) => (props.primary ? "0.7s" : "0.7s")} linear;
   z-index: 10;
 `;
 
@@ -103,10 +105,11 @@ export const Link = styled.a`
   text-decoration: none;
   color: #47c269;
   font-size: 12px;
-  margin: 0;
+  margin: 2rem 0;
+  text-align: ${(props) => props.align || "left"};
 `;
 export const Button = styled.button`
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   background-color: #100f0f;
   color: #fff;
   border-radius: 10px;
@@ -117,25 +120,28 @@ export const Button = styled.button`
 `;
 
 export const Hero = styled.div`
-  width: 50%;
-  height: 100%;
+  /* width: 50%;
+  height: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
   /*  */
   position: absolute;
   top: 0;
-  right: 0;
-  /* left: 50%; */
   bottom: 0;
-  transform: translateX(${(props) => (props.primary ? "-200px" : "0")});
+  right: ${(props) => (props.primary ? "45%" : 0)};
+  left: ${(props) => (props.primary ? 0 : "45%")};
+  transition: left ${(props) => (props.primary ? "0.7s" : "0.4s")} ease-in-out,
+    right ${(props) => (props.primary ? "0.4s" : "0.7s")} ease-in-out;
+  /* transform: translateX(${(props) => (props.primary ? "-200px" : "0")}); */
   /* opacity: ${(props) => (props.primary ? 0 : 1)};
   visibility:${(props) => (props.primary ? "hidden" : "visible")} */
-  transition: transform 0.5s linear;
+  /* transition: transform 0.5s linear; */
+  z-index: 5;
 `;
 
 export const WrapperHero = styled.div`
-  width: 60%;
+  width: 350px;
   border-radius: 30px;
   background: rgba(196, 196, 196, 0.47);
   backdrop-filter: blur(5px);
@@ -161,4 +167,21 @@ export const ButtonHero = styled.button`
   border-radius: 50px;
   border: 1px solid #fff;
   padding: 0.5rem 1.2rem;
+`;
+
+export const Social = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+export const BtnSocial = styled.button`
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  margin: 0 1rem;
+  cursor: pointer;
+  &:hover {
+    img {
+      color: #47c269;
+    }
+  }
 `;
